@@ -1,0 +1,22 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+}
+
+main {
+    margin: 5rem;
+    padding: 2.5rem;
+    background-color: #746c6c;
+}
+
+section {
+    padding: 5px;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+}

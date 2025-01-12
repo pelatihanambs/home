@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        alert('CIEEE LIAT PROJECT SIAPA TUCHH!!!_<☺️☺️')
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H5P Content</title>
+    <!-- Load H5P styles and scripts -->
+    <script>
+        // Pastikan H5PIntegration object sudah didefinisikan
+        var H5PIntegration = {
+            core: {
+                styles: ['path/to/core/styles.css'],
+                scripts: ['path/to/core/scripts.js']
+            },
+            contents: {
+                'cid-123': {
+                    styles: ['path/to/content/styles.css'],
+                    scripts: ['path/to/content/scripts.js']
+                }
+            }
+        };
+
+        // Fungsi untuk menghasilkan tag <link> dan <script>
+        function generateHeadTags(contentId) {
+            function generateStyles(styles) {
+                return styles.map(style => `<link rel="stylesheet" href="${style}">`).join('');
+            }
+
+            function generateScripts(scripts) {
+                return scripts.map(script => `<script src="${script}"><\/script>`).join('');
+            }
+
+            return generateStyles(H5PIntegration.core.styles) +
+                   generateStyles(H5PIntegration.contents['cid-' + contentId].styles) +
+                   generateScripts(H5PIntegration.core.scripts) +
+                   generateScripts(H5PIntegration.contents['cid-' + contentId].scripts);
+        }
+
+        // Menyematkan tag ke dalam <head>
+        document.write(generateHeadTags('123'));
+    </script>
+</head>
+<body>
+    <div id="h5p-container"></div>
+    <script>
+        // Inisialisasi H5P content
+        H5P.init();
+        H5P.attach(H5P.newRunnable({id: 'cid-123'}, document.getElementById('h5p-container')));
+    </script>
+</body>
+</html>
